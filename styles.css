@@ -9,6 +9,15 @@ a {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+p::selection {
+  background-color: #F63232;
+  color: #FFFFFF;
+}
+
+p::after {
+  content: "...";
+}
+
 body>header {
   background-color: #F63232;
   position: fixed;
@@ -21,8 +30,8 @@ body>header {
 }
 
 body>header>h1 {
-  color: #ffffff;
-  border: 5px solid #ffffff;
+  color: #FFFFFF;
+  border: 5px solid #FFFFFF;
   display: inline-block;
   padding: 5px 10px;
   border-radius: 30px;
@@ -39,7 +48,7 @@ body>section.banner>img {
 
 body>section.banner>div.welcome {
   background-color: #FEB614;
-  color: #ffffff;
+  color: #FFFFFF;
   padding: 30px;
   position: absolute;
   top: 30%;
@@ -76,6 +85,10 @@ body>nav>ul>li>a {
   color: #4B4B4B;
 }
 
+body>nav>ul>li>a:hover {
+  text-decoration: underline;
+}
+
 body>nav>ul>li>a.join {
   color: #F63232;
 }
@@ -95,6 +108,11 @@ body>main>article>p {
   color: #4B4B4B;
 }
 
+body>main>article>p::first-line {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
 body>main>ul.images {
   text-align: center;
   margin: 85px 0;
@@ -105,6 +123,12 @@ body>main>ul.images>li {
   display: inline-block;
   width: 40%;
   margin: 0 5%;
+}
+
+body>main>ul.images>li:hover {
+  position: relative;
+  bottom: 4px;
+  z-index: -1;
 }
 
 body>main>ul.images>li>img {
@@ -122,17 +146,81 @@ body>section.join>h2 {
   font-size: 50px;
 }
 
+body>section.join>p::first-letter {
+  font-size: 1.2em;
+}
+
 body>section.join>form>input {
   margin-top: 25px;
   padding: 12.5px 25px;
   font-size: 25px;
   border-radius: 30px;
-  border: 5px solid #ffffff;
+  border: 5px solid #FFFFFF;
+}
+
+body>section.join>form>input:focus {
+  border: 5px dashed #4B4B4B;
+  outline: none;
+}
+
+body>section.join>form>input:valid {
+  border: 5px solid #71D300;
 }
 
 body>footer {
   background-color: #F63232;
-  color: #ffffff;
+  color: #FFFFFF;
   text-align: center;
   padding: 10px 0;
+}
+
+@media screen and (max-width: 900px) {
+
+  body>section.banner>div.welcome>h2 {
+    font-size: 40px;
+  }
+
+}
+
+@media screen and (max-width: 720px) {
+
+  body>section.banner>div.welcome>h2 {
+    font-size: 30px;
+  }
+
+  body>nav>ul>li {
+    font-size: 20px;
+  }
+
+}
+
+@media screen and (max-width: 630px) {
+
+  body>section.banner>div.welcome>h2 {
+    font-size: 20px;
+  }
+
+  body>section.banner>div.welcome {
+    position: relative;
+    text-align: center;
+  }
+
+  body>section.banner>div.welcome>h2>br {
+    display: none;
+  }
+
+  body>section.banner>div.welcome>span {
+    font-size: 1em;
+  }
+
+  body>nav>ul>li {
+    font-size: 18px;
+  }
+
+  body>main>ul.images>li {
+    width: 100%;
+    display: block;
+    margin: 20px auto;
+  }
+
 }
